@@ -22,3 +22,36 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+curr_month = datetime.today().month
+curr_year = datetime.today().year
+
+def print_cal(month = curr_month, year = curr_year):
+    if 0 < month < 13:
+        print(calendar.month(year, month, 2, 1))
+    else:
+      print('The month must be a number between 1 and 12')
+
+# cal_input = input("~~> ").split(",")
+
+# if len(cal_input) == 0:
+#     print_cal()
+# elif len(cal_input) == 1:
+#     print_cal(int(cal_input[0]))
+# elif len(cal_input) == 2:
+#     print_cal(int(cal_input[0]), int(cal_input[1]))
+# else:
+#     print("input must include a month(1-12), or a month and year (2, 1986)")
+
+# to make this better I would validate the year as well and return an error
+
+# How i would solve it with .argv instead of the input()
+if len(sys.argv) == 1:
+    print_cal()
+elif len(sys.argv) == 2:
+    print_cal(int(sys.argv[1]))
+elif len(sys.argv) == 3:
+    print_cal(int(sys.argv[1]), int(sys.argv[2]))
+else:
+    print("input must include a month(1-12), or a month and year (2, 1986)")
+    
